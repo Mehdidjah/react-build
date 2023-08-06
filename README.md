@@ -1,4 +1,4 @@
-R# React + TypeScript + Vite
+# React + TypeScript + Vite
 
 This project is built using **React**, **TypeScript**, and **Vite**, providing a fast development experience with Hot Module Replacement (HMR) and optimized build performance.
 
