@@ -1,47 +1,87 @@
-React + TypeScript + Vite
+R# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is built using **React**, **TypeScript**, and **Vite**, providing a fast development experience with Hot Module Replacement (HMR) and optimized build performance.
 
-Currently, two official plugins are available:
+---
 
-@vitejs/plugin-react uses Babel for Fast Refresh
-@vitejs/plugin-react-swc uses SWC for Fast Refresh
-React Compiler
+## 🚀 Features
+- ⚡ **Vite** for ultra-fast dev server and builds  
+- ⚛️ **React** with modern JSX support  
+- 🦾 **TypeScript** for type-safety  
+- 🔥 **HMR (Hot Module Replacement)** enabled  
+- 🧹 **ESLint** preconfigured  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see this documentation.
+---
 
-Expanding the ESLint configuration
+## 📁 Project Structure
+```
+/
+├── src/               # React components, logic, styles
+├── public/            # Static assets
+├── index.html         # Root HTML file
+├── tsconfig.*.json    # TypeScript configurations
+├── vite.config.ts     # Vite config
+└── eslint.config.js   # ESLint setup
+```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
+## 🛠 Plugins Available
+Two official Vite plugins for React:
+
+### 1. `@vitejs/plugin-react`
+Uses **Babel** for Fast Refresh.
+
+### 2. `@vitejs/plugin-react-swc`
+Uses **SWC** for even faster Fast Refresh.
+
+---
+
+## ⚛️ React Compiler (Optional)
+React Compiler is **not enabled** by default because it impacts development and build performance.
+
+To enable it, follow React’s official documentation.
+
+---
+
+## 🧹 Expanding ESLint Configuration (Recommended for Production)
+
+If you're building a production-level application, enable **type-aware** linting:
+
+```ts
 export default defineConfig([
   globalIgnores(['dist']),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
       tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
+      // Or stricter rules:
+      // tseslint.configs.strictTypeChecked,
+      // Optional stylistic rules:
       tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
     ],
     languageOptions: {
       parserOptions: {
         project: ['./tsconfig.node.json', './tsconfig.app.json'],
         tsconfigRootDir: import.meta.dirname,
       },
-      // other options...
     },
   },
 ])
-You can also install eslint-plugin-react-x and eslint-plugin-react-dom for React-specific lint rules:
+```
 
-// eslint.config.js
+---
+
+## 🧩 Optional: React-Specific ESLint Plugins
+
+Install:
+
+- `eslint-plugin-react-x`
+- `eslint-plugin-react-dom`
+
+Then update `eslint.config.js`:
+
+```js
 import reactX from 'eslint-plugin-react-x'
 import reactDom from 'eslint-plugin-react-dom'
 
@@ -50,10 +90,7 @@ export default defineConfig([
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
-      // Other configs...
-      // Enable lint rules for React
       reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
       reactDom.configs.recommended,
     ],
     languageOptions: {
@@ -61,7 +98,27 @@ export default defineConfig([
         project: ['./tsconfig.node.json', './tsconfig.app.json'],
         tsconfigRootDir: import.meta.dirname,
       },
-      // other options...
     },
   },
 ])
+```
+
+---
+
+## 🧞 Commands
+
+Run all commands from the project root:
+
+| Command         | Description                              |
+|-----------------|------------------------------------------|
+| `npm install`   | Install dependencies                     |
+| `npm run dev`   | Start local dev server (`localhost:5173`) |
+| `npm run build` | Build for production                     |
+| `npm run preview` | Preview the production build locally   |
+
+---
+
+## 📚 Learn More
+- Vite docs — https://vitejs.dev  
+- React docs — https://react.dev  
+- TypeScript docs — https://www.typescriptlang.org  
